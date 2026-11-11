@@ -8,6 +8,8 @@ Skills лежат в `.claude/skills/`. Claude Code подхватывает и�
 
 **На своём компьютере (для всех проектов):** скопируй содержимое `.claude/skills/` в `~/.claude/skills/` (Windows: `C:\Users\<имя>\.claude\skills\`) и перезапусти Claude Code.
 
+**Папка `.claude/tools/`** — справочники по сервисам (Ahrefs, GA4, Semrush и др.), на которые ссылаются маркетинговые skills `link-building` и `reverse-engineer-marketing`. На компьютере скопируй её в `~/.claude/tools/` (Windows: `C:\Users\<имя>\.claude\tools\`). Источник: coreyhaines31/marketingskills, MIT.
+
 ## Источники и лицензии
 
 Все skills скопированы без изменений из открытых репозиториев. Тексты лицензий авторов — в папке `LICENSES/` и внутри папок skills, где они были. У remotion-dev/skills файла лицензии нет: репозиторий приватный и только для личного использования, публиковать его не стоит.
