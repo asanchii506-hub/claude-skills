@@ -27,5 +27,24 @@ Skills лежат в `.claude/skills/`. Claude Code подхватывает и�
 | AI-агенты | agent-designer, agent-workflow-designer, rag-architect | alirezarezvani/claude-skills | MIT |
 | Маркетинг и продажи | 53 skills (copywriting, cro, seo-audit, ai-seo, marketing-psychology, offers, sales-enablement и др.) | coreyhaines31/marketingskills | MIT |
 | Юридический РФ | ru-website-legal-compliance (152-ФЗ, ЗОЗПП, РКН) | duduev/rkn-compliance | MIT |
+| Видео | ffmpeg-skill | ruizrica/ffmpeg-skill | MIT |
+| Видео | shorts (Claude Shorts) | AgriciDaniel/claude-shorts | MIT; рендер через Remotion |
+| Видео | hyperframes, hyperframes-cli, hyperframes-registry, media-use, reverse-any-video, style-sampling | heygen-com/hyperframes | Apache-2.0 |
 
 `ru-website-legal-compliance` — технический чек-лист, а не юридическая консультация.
+
+## Видео
+
+Для всех видео-skills нужен **FFmpeg** (Windows: `winget install Gyan.FFmpeg`).
+
+| Skill | Что делает | Что ещё нужно | Пример промпта |
+|---|---|---|---|
+| `/ffmpeg-skill` | Монтаж готового видео на компьютере: обрезка, склейка, 9:16 для Reels, субтитры, логотип, музыка с приглушением под голос, удаление пауз, громкость, экспорт под YouTube/TikTok | Python 3.9+ | `Обрежь video.mp4 до 60 секунд, сделай вертикальным 9:16 и добавь субтитры` |
+| `/hyperframes` | Видео из HTML-кода: промо продукта, заставки, анимированная инфографика, титры. Можно повторить стиль понравившегося ролика (`/reverse-any-video`) | Node.js 22+ | `Сделай 15-секундное промо-видео для лендинга кофейни в тёплых тонах, 1080×1920` |
+| `/shorts` | Из длинного видео (подкаст, интервью, вебинар) находит лучшие моменты и делает вертикальные шортсы с анимированными субтитрами | Python 3.10+, Node.js 18+. **Windows: только через WSL 2**. Один раз запустить `bash ~/.claude/skills/shorts/setup.sh` | `Сделай 3 шортса из podcast.mp4 для Reels, субтитры в стиле Bold` |
+
+**Статистика HyperFrames.** HyperFrames отправляет анонимные счётчики использования (без текстов и имён файлов). Выключить один раз: `npx hyperframes telemetry disable`.
+
+**Не входят в набор:**
+- **OpenMontage** (OpenMontageInc/OpenMontage, AGPL-3.0) — не skill, а целая студия видеопроизводства: сценарий, озвучка, музыка, генерация картинок, монтаж. Скачивается отдельной папкой и открывается в Claude Code. Многие функции требуют платных ключей (генерация картинок, голос).
+- **Ghost Editor** (kurbaitaev/ghost-editor) — монтаж говорящей головы в рилсы. Работает только на Mac с Apple silicon.
